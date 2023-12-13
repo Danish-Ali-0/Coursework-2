@@ -4,7 +4,7 @@ checkout scm
 	echo 'testingggggg'	
 	def image = docker.build("dali300/cw2:1.0")
 	image.inside {
-	sh 'docker ps'	
+	sh 'curl localhost:8080'	
 }
 }
 }
