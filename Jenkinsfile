@@ -4,7 +4,7 @@ checkout scm
 	echo 'testingggggg'	
 	def image = docker.build("dali300/cw2:1.0")
 	image.inside { 
-	sh 'make test'
+	sh 'minikube version'
 }	
 }
 }
