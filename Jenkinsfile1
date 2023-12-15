@@ -1,6 +1,4 @@
-
-node {
-    
+node {    
 def image
 stage('b. Build Image') {
 echo 'testingggggg'  
