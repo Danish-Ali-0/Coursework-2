@@ -1,15 +1,15 @@
-node { 	
+node {
 checkout scm
-#	agent { 
-#		docker { image 'node:6.14.2' }
-#		}
 	stages {
-		stage ('dockerhub test') {
+		stage ('b. Build Image') {
 		echo 'testingggggg'	
 		def image = docker.build("dali300/cw2:1.0")
-#			image.inside {
-#				sh 'curl localhost:8080'	
-#			}
+		}
+		stage('c. Launch & Test Container') {
+		}
+		stage('d. Push to DockerHub') {
+		}
+		stage('e. Deploy to kubernetes') {
 }
 }
 }
