@@ -8,15 +8,9 @@ echo 'testingggggg'
 
 stage('c. Launch & Test Container') {
 def iamge = docker.container("dali300/cw2:1.0").run("-d")
-image.insde {
-sh 'curl localhost:8080'
+image.inside {
+sh 'docker version'
 }
-}
-
-stage('d. Push to DockerHub') {
-}
-
-stage('e. Deploy to kubernetes') {
 }
 
 }
