@@ -7,7 +7,7 @@ echo 'testingggggg'
 }
 
 stage('c. Launch & Test Container') {
-iamge = docker.container("dali300/cw2:1.0").run("-d")
+def iamge = docker.container("dali300/cw2:1.0").run("-d")
 image.insde {
 sh 'curl localhost:8080'
 }
