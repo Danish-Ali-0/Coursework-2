@@ -7,10 +7,9 @@ echo 'testingggggg'
 }
 
 stage('c. Launch & Test Container') {
-def iamge = docker.container("dali300/cw2:1.0").run("-d")
-image.inside {
-sh 'docker version'
-}
+def iamge = docker.image("dali300/cw2:1.0").run("-d -p 8080:80")
+echo "testing: ${iamge.id}"
+sh 'curl http://localhost:8080'
 }
 
 }
