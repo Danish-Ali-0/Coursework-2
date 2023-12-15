@@ -11,8 +11,8 @@ echo 'testingggggg'
 stage('c. Launch & Test Container') {
 def iamge = docker.image("dali300/cw2:1.0").run("-d")
 echo "testing: ${iamge.id}"
-docker.withRegistry('', docker) {
-image.push();
+withDockerRegistry('', docker) {
+image.push()
 }
 }
 
