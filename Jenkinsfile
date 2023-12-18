@@ -24,7 +24,7 @@ def image
 
         echo "Container ID: ${id.id}" 
 
-	sh 'curl localhost:8080'
+	sh 'docker ps'
     } 
 
      
