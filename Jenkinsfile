@@ -35,7 +35,7 @@ def image
 
         docker.withRegistry('https://registry.hub.docker.com', 'docker') { 
 
-            image.push('2.0') 
+            image.push('3.0') 
 
         } 
 
