@@ -1,17 +1,43 @@
-node {
-checkout scm
-def image
-def docker = 'docker'
+node { 
 
-stage('b. Build Image') {
-echo 'testingggggg'	
- image = docker.build("dali300/cw2:1.0")
-image.push()
-}
+checkout scm 
 
-stage('c. Launch & Test Container') {
-def iamge = docker.image("dali300/cw2:1.0").run("-d")
-echo "testing: ${iamge.id}"
-}
+def image  
 
-}
+     
+
+    stage('b. Build Image') { 
+
+        echo "Buidling..." 
+
+        image = docker.build("dali300/cw2:1.0"); 
+
+    } 
+
+     
+
+    stage('c. Launch & test Container') { 
+
+        echo "Launching..." 
+
+        def id = docker.image("dali300/cw2:1.0").run("-d") 
+
+        echo "Container ID: ${id.id}" 
+
+    } 
+
+     
+
+    stage('d. Push to DockerHub') { 
+
+        echo "Pushing..." 
+
+        docker.withRegistry('https://registry.hub.docker.com', 'docker') { 
+
+            image.push('2.0') 
+
+        } 
+
+    } 
+
+} 
